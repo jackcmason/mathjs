@@ -28,4 +28,8 @@ describe('setCartesian', function () {
     assert.throws(function () { math.setCartesian() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setCartesian([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should pretty print', function () {
+    assert.strictEqual(math.parse('setCartesian(B, C)').toTex(), '\\mathrm{B}\\times\\mathrm{C}')
+  })
 })

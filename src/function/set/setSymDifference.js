@@ -8,6 +8,7 @@ function factory (type, config, load, typed) {
   const size = load(require('../matrix/size'))
   const subset = load(require('../matrix/subset'))
   const setDifference = load(require('../set/setDifference'))
+  const latex = require('../../utils/latex')
 
   /**
    * Create the symmetric difference of two (multi)sets.
@@ -42,6 +43,9 @@ function factory (type, config, load, typed) {
       return concat(setDifference(b1, b2), setDifference(b2, b1))
     }
   })
+  setSymDifference.toTex = {
+    2: `\${args[0]}${latex.operators['disjunctiveUnion']}\${args[1]}`
+  }
 
   return setSymDifference
 }

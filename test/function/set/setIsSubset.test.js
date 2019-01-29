@@ -26,4 +26,8 @@ describe('setIsSubset', function () {
     assert.throws(function () { math.setIsSubset() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setIsSubset([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setIsSubset(B, C)').toTex(), '\\mathrm{B}\\subseteq\\mathrm{C}')
+  })
 })

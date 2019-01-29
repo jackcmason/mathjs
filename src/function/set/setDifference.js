@@ -10,6 +10,7 @@ function factory (type, config, load, typed) {
   const size = load(require('../matrix/size'))
   const subset = load(require('../matrix/subset'))
   const compareNatural = load(require('../relational/compareNatural'))
+  const latex = require('../../utils/latex')
 
   /**
    * Create the difference of two (multi)sets: every element of set1, that is not the element of set2.
@@ -65,6 +66,9 @@ function factory (type, config, load, typed) {
       return new DenseMatrix(generalize(result))
     }
   })
+  setDifference.toTex = {
+    2: `\${args[0]}${latex.operators['setMinus']}\${args[1]}`
+  }
 
   return setDifference
 }

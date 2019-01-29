@@ -51,6 +51,9 @@ function factory (type, config, load, typed) {
       return new DenseMatrix(result)
     }
   })
+  setCartesian.toTex = {
+    2: `\${args[0]}\\times\${args[1]}`
+  }
 
   return setCartesian
 }

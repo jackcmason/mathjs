@@ -10,6 +10,7 @@ function factory (type, config, load, typed) {
   const size = load(require('../matrix/size'))
   const subset = load(require('../matrix/subset'))
   const compareNatural = load(require('../relational/compareNatural'))
+  const latex = require('../../utils/latex')
 
   /**
    * Create the intersection of two (multi)sets.
@@ -58,6 +59,9 @@ function factory (type, config, load, typed) {
       return new DenseMatrix(generalize(result))
     }
   })
+  setIntersect.toTex = {
+    2: `\${args[0]}${latex.operators['intersection']}\${args[1]}`
+  }
 
   return setIntersect
 }

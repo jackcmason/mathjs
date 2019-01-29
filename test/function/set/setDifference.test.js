@@ -29,4 +29,8 @@ describe('setDifference', function () {
     assert.throws(function () { math.setDifference() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setDifference([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setDifference(B, C)').toTex(), '\\mathrm{B}\\setminus\\mathrm{C}')
+  })
 })

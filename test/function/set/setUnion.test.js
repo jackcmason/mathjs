@@ -23,4 +23,8 @@ describe('setUnion', function () {
     assert.throws(function () { math.setUnion() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setUnion([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setUnion(B, C)').toTex(), '\\mathrm{B}\\cup\\mathrm{C}')
+  })
 })

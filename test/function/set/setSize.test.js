@@ -27,4 +27,8 @@ describe('setSize', function () {
   it('should throw an error in case of invalid number of arguments', function () {
     assert.throws(function () { math.setSize() }, /TypeError: Too few arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setSize(B)').toTex(), '\\# \\mathrm{B}')
+  })
 })

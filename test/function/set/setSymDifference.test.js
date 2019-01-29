@@ -24,4 +24,8 @@ describe('setSymDifference', function () {
     assert.throws(function () { math.setSymDifference() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setSymDifference([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setSymDifference(B, C)').toTex(), '\\mathrm{B}\\triangle\\mathrm{C}')
+  })
 })

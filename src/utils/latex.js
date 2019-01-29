@@ -105,7 +105,13 @@ exports.operators = {
   'bitOr': '|',
   'and': '\\wedge',
   'xor': '\\veebar',
-  'or': '\\vee'
+  'or': '\\vee',
+  'setMinus': '\\setminus',
+  'intersection': '\\cap',
+  'union': '\\cup',
+  'subset': '\\subseteq',
+  'disjunctiveUnion': '\\triangle',
+  'cardinality': '\\#'
 }
 
 exports.defaultTemplate = `\\mathrm{\${name}}\\left(\${args}\\right)`

@@ -4,6 +4,7 @@ const flatten = require('../../utils/array').flatten
 
 function factory (type, config, load, typed) {
   const compareNatural = load(require('../relational/compareNatural'))
+  const latex = require('../../utils/latex')
 
   /**
    * Count the number of elements of a (multi)set. When a second parameter is 'true', count only the unique values.
@@ -45,6 +46,9 @@ function factory (type, config, load, typed) {
       }
     }
   })
+  setSize.toTex = {
+    1: `${latex.operators['cardinality']} \${args[0]}`
+  }
 
   return setSize
 }

@@ -27,4 +27,8 @@ describe('setIntersect', function () {
     assert.throws(function () { math.setIntersect() }, /TypeError: Too few arguments/)
     assert.throws(function () { math.setIntersect([], [], []) }, /TypeError: Too many arguments/)
   })
+
+  it('should LaTeX', function () {
+    assert.strictEqual(math.parse('setIntersect(B, C)').toTex(), '\\mathrm{B}\\cap\\mathrm{C}')
+  })
 })

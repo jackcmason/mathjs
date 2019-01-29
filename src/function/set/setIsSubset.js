@@ -8,6 +8,7 @@ function factory (type, config, load, typed) {
   const size = load(require('../matrix/size'))
   const subset = load(require('../matrix/subset'))
   const compareNatural = load(require('../relational/compareNatural'))
+  const latex = require('../../utils/latex')
 
   /**
    * Check whether a (multi)set is a subset of another (multi)set. (Every element of set1 is the element of set2.)
@@ -55,6 +56,9 @@ function factory (type, config, load, typed) {
       return true
     }
   })
+  setIsSubset.toTex = {
+    2: `\${args[0]}${latex.operators['subset']}\${args[1]}`
+  }
 
   return setIsSubset
 }

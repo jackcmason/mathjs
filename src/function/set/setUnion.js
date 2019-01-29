@@ -9,6 +9,7 @@ function factory (type, config, load, typed) {
   const subset = load(require('../matrix/subset'))
   const setIntersect = load(require('../set/setIntersect'))
   const setSymDifference = load(require('../set/setSymDifference'))
+  const latex = require('../../utils/latex')
 
   /**
    * Create the union of two (multi)sets.
@@ -43,6 +44,9 @@ function factory (type, config, load, typed) {
       return concat(setSymDifference(b1, b2), setIntersect(b1, b2))
     }
   })
+  setUnion.toTex = {
+    2: `\${args[0]}${latex.operators['union']}\${args[1]}`
+  }
 
   return setUnion
 }
