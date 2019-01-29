@@ -934,6 +934,18 @@ describe('Unit', function () {
     })
   })
 
+  describe('consistant bit units', function () {
+    it('should retain SI units for calculations', function () {
+      const m = Unit.parse("5 minutes")
+      const s1 = Unit.parse("54.74 MB/s")
+      const s2 = Unit.parse("54.75 MB/s")
+      const op1 = math.multiply(m, s1)
+      const op2 = math.multiply(m, s2)
+      assert.strictEqual(op1.toString(), '16.422 GB')
+      assert.strictEqual(op2.toString(), '16.425 GB')
+    })
+  })
+
   describe('_isDerived', function () {
     it('should return the correct value', function () {
       assert.strictEqual(Unit.parse('34 kg')._isDerived(), false)

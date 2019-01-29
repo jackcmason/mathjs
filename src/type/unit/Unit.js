@@ -326,6 +326,9 @@ function factory (type, config, load, typed, math) {
         throw new SyntaxError('Unit "' + uStr + '" not found.')
       }
 
+      //text === '54.74 MB/s' && console.log(res)
+      //text === '54.75 MB/s' && console.log(res)
+
       let power = powerMultiplierCurrent * powerMultiplierStackProduct
       // Is there a "^ number"?
       skipWhitespace()
@@ -340,6 +343,8 @@ function factory (type, config, load, typed, math) {
       }
 
       // Add the unit to the list
+      text === '54.74 MB/s' && console.log(res.prefix)
+      text === '54.75 MB/s' && console.log(res.prefix)
       unit.units.push({
         unit: res.unit,
         prefix: res.prefix,
